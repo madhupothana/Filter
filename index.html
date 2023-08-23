@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+</head>
+<body>
+	<center>
+<h1>Filter Implementation</h1>
+<lable>Name: <input type="text" id="name"></lable><br><br>
+<lable>Eno: <input type="text" id="eno"></lable><br><br>
+<button onclick="login()">Login</button>
+</center>
+
+<script>
+	function login(){
+		var x=new XMLHttpRequest();
+		var name=document.getElementById("name").value;
+		var eno=document.getElementById("eno").value;
+		x.open("GET","LoginServlet?name="+name+"&eno="+eno,true);
+		x.send();
+		x.onreadystatechange=function(){
+			var data=x.responseText;
+			$('body').html(data);
+		}
+	}
+</script>
+</body>
+</html>

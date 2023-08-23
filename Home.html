@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+	<center>
+		<h1>Filter Implementation</h1>
+		<lable>Key: <input type="text" id="key"></lable><br><br>
+		<button onclick="login()">Login</button>
+	</center>
+</body>
+<script>
+	function login(){
+		var x=new XMLHttpRequest();
+		var key=document.getElementById("key").value;
+		x.open("GET","serv1",true);
+		x.send();
+		x.onreadystatechange=function(){
+			var data=x.responseText;
+			document.body.innerHTML=data;
+		}
+	}
+</script>
+</html>
